@@ -1,0 +1,24 @@
+{
+    "banks": [
+        {
+            "id": 1,
+            "name": "ICICI"
+        },
+        {
+            "id": 2,
+            "name": "Union Bank of India"
+        },
+        {
+            "id": 3,
+            "name": "Muthoot Finance"
+        },
+        {
+            "id": 4,
+            "name": "HDFC"
+        },
+        {
+            "id": 5,
+            "name": "Manappuram Finance"
+        }
+    ]
+}
