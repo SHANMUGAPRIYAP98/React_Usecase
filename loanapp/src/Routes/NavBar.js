@@ -7,8 +7,14 @@ import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import HomeIcon from '@material-ui/icons/Home';
 import InfoIcon from '@material-ui/icons/Info';
 import MoneyIcon from '@material-ui/icons/Money';
+import {GoogleLogin} from 'react-google-login'
+import * as FcIcons from 'react-icons/fc'
 import Styles from '../CSS/Styling.css'
 export default function NavBar() {
+    const responseGoogle=(response)=>
+    {
+        console.log(response)
+    }
     const useStyles = makeStyles({
         root:
         {
@@ -57,6 +63,10 @@ export default function NavBar() {
                             <MoneyIcon style={{color:'yellow'}}/>
                         </IconButton>
                         <Link className={classes.links} to="/loan">Apply Loan</Link></Typography>
+                        <IconButton color="inherit">                          
+                        <GoogleLogin clientId="460706905247-hcg5rhli7b3udirp9uhpvpkef8phrctt.apps.googleusercontent.com" className="oauth" buttonText="Login"  onSuccess={responseGoogle} onFailure={responseGoogle}
+                         cookiePolicy={'single_host_origin' } />
+                        </IconButton>
                 </Toolbar>
             </AppBar>
         </div>
