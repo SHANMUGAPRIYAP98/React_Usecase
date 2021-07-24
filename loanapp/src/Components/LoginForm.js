@@ -6,48 +6,71 @@ import { TextField, Button, Card, CardContent, IconButton } from '@material-ui/c
 import { makeStyles } from '@material-ui/core/styles';
 import EmailSharpIcon from '@material-ui/icons/EmailSharp';
 import VisibilitySharpIcon from '@material-ui/icons/VisibilitySharp';
-import { useFormik } from 'formik'
-import emailjs from 'emailjs-com'
-import * as Yup from 'yup'
+import { useFormik } from 'formik';
+import emailjs from 'emailjs-com';
+import * as Yup from 'yup';
+import axios from 'axios'
+import swal from 'sweetalert';
 export default function LoginForm() {
     const auth = {
         isAuthenticated: false,
-        authenticated(cb) {
+        authenticated() {
             this.isAuthenticated = true;
-            setTimeout(cb, 100)
         }
     }
     const [direct, setDirect] = useState(false)
     const history = useHistory()
     const { state } = useLocation()
-    // const loginBut=()=>
-    // {
+    const loginBut=()=>
+    {
 
-    //    auth.authenticated(()=>
-    //    {
-    //        setDirect(true);
-    //    })
-    // }
+       auth.authenticated(()=>
+       {
+           setDirect(true);
+       })
+       history.push('/loan')
+    
+    }
     const validationSchema = Yup.object({
         mail: Yup.string().required("Email-Id is Required").email("Enter a Valid Email"),
         pass: Yup.string().required("Password  is Required")
     })
+    const dburl="http://localhost:8080/login/getMailPass";
+    
     const { handleSubmit, handleChange, values, errors } = useFormik({
         initialValues: {
             mail: '',
             pass: ''
         },
-        validationSchema
+        validationSchema,
     })
+ 
     function sendMail(event)
     {
-        event.preventDefault();
-         emailjs.sendForm('gmail', 'email-template', event.target, 'user_bJdyl453vkTqnN9w2PzX9')
-                .then((result) => {
-                    console.log(result.text);
-                }, (error) => {
-                    console.log(error.text);
-                });
+        const mail=values.mail;
+        axios.get(`${dburl}/${mail}`).then(res=>res.data).then((res)=>
+        {
+           console.log(res)
+            if(res.mail==values.mail&&res.pass==values.pass)
+            {
+                swal("Login Successful","","success")
+
+            }
+            else
+            {
+                swal("Invalid Username or Password","","error")
+            }
+        }).catch((e)=>
+        {
+            swal("Invalid Username or Password","","error")
+        })
+        // event.preventDefault();
+        //  emailjs.sendForm('gmail', 'email-template', event.target, 'user_bJdyl453vkTqnN9w2PzX9')
+        //         .then((result) => {
+        //             console.log(result.text);
+        //         }, (error) => {
+        //             console.log(error.text);
+        //         });
     }
     const useStyles = makeStyles({
         style: {
@@ -65,10 +88,10 @@ export default function LoginForm() {
     const register = () => {
         history.push('/register')
     }
-    // if(direct===true)
-    // {
-    //   return <Redirect to={state?.from || '/loan'}></Redirect>
-    // }
+    if(direct===true)
+    {
+      return <Redirect to={state?.from || '/loan'}></Redirect>
+    }
 
 
     return (
@@ -82,7 +105,7 @@ export default function LoginForm() {
                                 <br></br>
                                 <tr><IconButton style={{ color: '#2E4053' }}><VisibilitySharpIcon /></IconButton><td><TextField name="pass" variant="outlined" label="Password" type="password" value={values.pass} onChange={handleChange} helperText={errors.pass ? errors.pass : null} /></td></tr>
                                 <br></br>
-                                <tr><td colSpan="2"><Button type="submit" variant="contained" style={{ backgroundColor: '#5D6D7E' }}>Login</Button></td></tr>
+                                <tr><td colSpan="2"><Button type="submit" variant="contained" style={{ backgroundColor: '#5D6D7E' }} >Login</Button></td></tr>
                                 <br></br>
                                 <tr><td style={{ fontStyle: 'italic' }}>Not Registered ?</td><td><Button type="submit" variant="contained" style={{ backgroundColor: '#5D6D7E' }} onClick={register}>Register Now</Button></td></tr>
                             </tbody>

@@ -7,64 +7,67 @@ import * as IoIcons from 'react-icons/io'
 import * as GrIcons from 'react-icons/gr'
 import * as VscIcons from 'react-icons/vsc'
 import * as FcIcons from 'react-icons/fc'
-import SideBar from './SideBar'
-export default function SideBarData() {
-    const menus = [
-        {
-            title: 'KYC Verification',
-            path: '/kyc',
-            icon: <HiIcons.HiDocument />,
-            iconClosed: <AiIcons.AiOutlineDown />,
-            iconOpened: <IoIcons.IoIosArrowUp />,
-            submenu: [{
-                title: 'KYC General Guidelines',
-                path: '/kyc/guidelines',
-                icon: <AiIcons.AiTwotoneFileText />
-            },
-            {
-                title: 'KYC Verification',
-                path: '/kyc/verify',
-                icon: <GrIcons.GrDocumentVerified />
-            },
-            {
-                title: 'KYC Document Preview',
-                path: '/kyc/preview',
-                icon: <VscIcons.VscPreview/>
-            }
-            ]
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+export const SideBarData=[
+    {
+        title: 'KYC Verification',
+        path: '/kyc',
+        icon: <HiIcons.HiDocument style={{color:'yellow',fontSize:25}}/>,
+        iconClosed: <AiIcons.AiOutlineDown style={{color:'yellow',fontSize:25}}/>,
+        iconOpened: <IoIcons.IoIosArrowUp style={{color:'yellow',fontSize:25}}/>,
+        submenu: [{
+            title: 'KYC General Guidelines',
+            path: '/kyc/guidelines',
+            icon: <AiIcons.AiTwotoneFileText style={{color:'F1C40F ',fontSize:25}}/>
         },
         {
-            title: 'Apply Gold Loan',
-            path: '/loan',
-            icon: <GiIcons.GiGoldBar />,
-            iconClosed: <AiIcons.AiOutlineDown />,
-            iconOpened: <IoIcons.IoIosArrowUp />,
-            submenu: [{
-                title: 'Gold Loan Form',
-                path: '/loan/form',
-                icon: <HiIcons.HiDocument />
-            },
-            {
-                title: 'Gold Loan Eligibility Calculator',
-                path: '/loan/eliCalc',
-                icon: <GiIcons.GiScales />
-            },
-            {
-                title: 'Gold Loan EMI Calculator',
-                path: '/loan/emiCalc',
-                icon: <IoIcons.IoMdCalculator/>
-            },
-            {
-                title: 'Gold Loan Preview',
-                path: '/loan/preview',
-                icon: <FcIcons.FcSalesPerformance/>
-            }
-            ]
+            title: 'KYC Verification',
+            path: '/kyc/verify',
+            icon: <GrIcons.GrDocumentVerified style={{color:'F1C40F ',fontSize:25}}/>
+        },
+        {
+            title: 'KYC Document Preview',
+            path: '/kyc/preview',
+            icon: <VscIcons.VscPreview style={{color:'F1C40F',fontSize:25}}/>
         }
-    ]
-    return (
-        <div>
-            <SideBar menus={menus}></SideBar>
-        </div>
-    )
-}
+        ]
+    },
+    {
+        title: 'Apply Gold Loan',
+        path: '/loan',
+        icon: <GiIcons.GiGoldBar style={{color:'yellow',fontSize:25}}/>,
+        iconClosed: <AiIcons.AiOutlineDown style={{color:'yellow',fontSize:25}}/>,
+        iconOpened: <IoIcons.IoIosArrowUp style={{color:'yellow',fontSize:25}}/>,
+        submenu: [{
+            title: 'Gold Loan Form',
+            path: '/loan/form',
+            icon: <HiIcons.HiDocument style={{color:'F1C40F',fontSize:25}}/>
+        },
+        {
+            title: 'Gold Loan Eligibility Calculator',
+            path: '/loan/eliCalc',
+            icon: <GiIcons.GiScales style={{color:'#F1C40F ',fontSize:25}}/>
+        },
+        {
+            title: 'Gold Loan EMI Calculator',
+            path: '/loan/emiCalc',
+            icon: <IoIcons.IoMdCalculator style={{color:'#F1C40F ',fontSize:25}}/>
+        },
+        {
+            title: 'Gold Loan Preview',
+            path: '/loan/preview',
+            icon: <FcIcons.FcSalesPerformance style={{color:'#F1C40F ',fontSize:25}}/>
+        }
+        ]
+    },
+    {
+        path:'/bullionRates',
+        title:'Bullion Rates',
+        icon:<TrendingUpIcon  style={{color:'yellow',fontSize:25}}/>
+    },
+    {
+        path:'/signout',
+        title:'SignOut',
+        icon:<FaIcons.FaSignOutAlt style={{color:'yellow',fontSize:25}}/>
+    }
+]

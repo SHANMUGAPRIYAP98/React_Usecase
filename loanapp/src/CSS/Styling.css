@@ -6,3 +6,18 @@ font-family:Verdana;
 {
     margin-left: 600px;
 }
+#emibox
+{
+    width:700px;
+    height:500px;
+}
+#emi
+{
+    margin-left: 500px;
+    background-color: #A9F2D9;
+}
+.em
+{
+    margin-left: 500px;
+    width:700px;
+}

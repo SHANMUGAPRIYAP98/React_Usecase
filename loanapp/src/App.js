@@ -9,11 +9,12 @@ import About from './Components/About';
 import ApplyLoan from './Components/ApplyLoan';
 import PrivateRoute from './Routes/PrivateRoute';
 import SideBar from './Routes/SideBar';
+import LoanEMI from './Components/LoanEMI';
 
 function App() {
   return (
     <Router>
-    <div className="App">
+    <div className="App" >
     <NavBar/>
     <SideBar/>
     <Switch>
@@ -21,6 +22,7 @@ function App() {
       <Route path="/about" exact component={About}></Route>
       <Route path="/register" exact component={RegisterForm}></Route>
       <Route path="/login" exact component={LoginForm}></Route>
+      <Route path="/loan/emiCalc" exact component={LoanEMI}></Route>
       <PrivateRoute path="/loan" exact ><ApplyLoan/></PrivateRoute>
     </Switch>
     </div>
