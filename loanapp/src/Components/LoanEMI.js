@@ -4,7 +4,7 @@ import Slider from '@material-ui/core/Slider'
 import  Typography  from '@material-ui/core/Typography'
 import { Table,TableRow,TableCell } from '@material-ui/core'
 import EMIDetails from './EMIDetails'
-import { Pie } from 'react-chartjs-2';
+import {Pie} from 'react-chartjs-2'
 import styles from '../CSS/Styling.css'
 import marker from './SliderMarks'
 const PrettoSlider = withStyles({
@@ -37,7 +37,6 @@ export default function LoanEMI() {
     const maxVal=6000000;
     const inteMax=20;
     const durMax=120;
-
     const int=inte/1200;
     const emi= duration ?Math.round(principal*int/(1-(Math.pow(1/(1+int),duration)))):0;
     const total=duration*emi;

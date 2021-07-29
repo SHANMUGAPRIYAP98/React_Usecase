@@ -9,7 +9,7 @@ export default function SideBar({menus}) {
     height:680px;
     margin-top:1px;
     display:flex;
-    position:fixed;
+    position:absolute;
     justify-content:center;
     `;
     const SidebarWrap = styled.div`

@@ -41,7 +41,7 @@ export default function RegisterForm() {
         alert("Captcha verified that your are a human")
         axios.post("http://localhost:8080/register/saveData",values).then((res=>res.data)).then((data)=>
         {
-          console.log(values)
+          console.log(data)
         }).catch((e)=>
         {
           console.log(e)
@@ -54,7 +54,6 @@ export default function RegisterForm() {
       else{
         alert("Please verify you are a human")
       }
-      console.log(values)
     }
   })
   const callback=()=>

@@ -2,7 +2,6 @@ package com.srm.loan.Exceptions;
 
 import java.util.Date;
 import java.util.Random;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -26,8 +25,4 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         System.out.println(err.toString());
         return new ResponseEntity<Errors>(err,HttpStatus.OK);
    }
-
-
-
-
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LoginRepo extends JpaRepository<Register,Long> {
     
-    @Query("select r from Register r where r.mail=:mail")
+    @Query("select r from Register r where r.mail=:mail ")
     public Register fetchMailAndPass(String mail);
 
 

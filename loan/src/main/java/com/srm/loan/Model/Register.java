@@ -3,16 +3,18 @@ package com.srm.loan.Model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="register")
 public class Register {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GenericGenerator(name="rid",strategy ="com.srm.loan.IDGeneration.CustomId")
+    @GeneratedValue(generator="rid")
+    private String rid;
     @Column(name = "cname")
     private String cname;
     @Column(name = "phone")
@@ -62,7 +64,7 @@ public class Register {
     }
     @Override
     public String toString() {
-        return "Register [cname=" + cname + ", id=" + id + ", mail=" + mail + ", pass=" + pass + ", phone=" + phone
+        return "Register [cname=" + cname + ", id=" + rid + ", mail=" + mail + ", pass=" + pass + ", phone=" + phone
                 + ", zip=" + zip + "]";
     }
    
@@ -70,5 +72,6 @@ public class Register {
     {
         
     }
+   
 
 }

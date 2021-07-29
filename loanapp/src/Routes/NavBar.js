@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, Typography, Toolbar, Button, makeStyles, IconButton } from '@material-ui/core'
+import { AppBar, Typography, Toolbar,  makeStyles, IconButton } from '@material-ui/core'
 import { Link } from 'react-router-dom';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
@@ -8,7 +8,6 @@ import HomeIcon from '@material-ui/icons/Home';
 import InfoIcon from '@material-ui/icons/Info';
 import MoneyIcon from '@material-ui/icons/Money';
 import {GoogleLogin} from 'react-google-login'
-import * as FcIcons from 'react-icons/fc'
 import Styles from '../CSS/Styling.css'
 export default function NavBar() {
     const responseGoogle=(response)=>
