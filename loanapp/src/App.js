@@ -13,6 +13,7 @@ import LoanEMI from './Components/LoanEMI';
 import KYCVerification from './Components/KYCVerification';
 import GoldLoanForm from './Components/GoldLoanForm';
 import GoldLoanPreview from './Components/GoldLoanPreview';
+import Bullion from './Components/Bullion';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Route path="/kyc/verify" exact component={KYCVerification}></Route>
       <Route path="/loan/form" exact component={GoldLoanForm}></Route>
       <Route path="/loan/preview" exact component={GoldLoanPreview}></Route>
+      <Route path="/bullionRates" exact component={Bullion}></Route>
       <PrivateRoute path="/loan" exact ><ApplyLoan/></PrivateRoute>
     </Switch>
     </div>

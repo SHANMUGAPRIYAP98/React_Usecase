@@ -10,6 +10,10 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
@@ -20,6 +24,7 @@ public class GeneralData {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String branch;
+    @NotNull(message = "name is required")
     private String cname;
     private String city;
     private String state;
@@ -35,6 +40,7 @@ public class GeneralData {
     private String nationality;
     private String education;
     private String occupation;
+    @Email(message = "enter a valid mail")
     private String mail;
     public String getBranch() {
         return branch;

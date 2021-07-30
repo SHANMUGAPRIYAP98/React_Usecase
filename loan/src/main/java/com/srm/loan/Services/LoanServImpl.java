@@ -21,7 +21,7 @@ public class LoanServImpl implements LoanServ {
        Register r=new Register();
        r.setCname("diyashri");
        r.setMail("diyashri@gmail.com");
-       r.setPass("Abc@1234");
+       r.setPass("ABCD@1234");
        r.setPhone(9840515309l);
        r.setZip(600118);
        loan.setRegister(r);

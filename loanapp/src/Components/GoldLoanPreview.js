@@ -1,46 +1,50 @@
-import { Button, CardContent,TextField,Card, Tab } from '@material-ui/core'
+import { Button, CardContent, TextField, Card, Tab } from '@material-ui/core'
 import axios from 'axios'
-import React,{useState} from 'react'
-import { Table,TableRow,TableCell,  TableHead} from '@material-ui/core'
+import React, { useState, useEffect } from 'react'
+import { Table, TableRow, TableCell, TableHead } from '@material-ui/core'
+import LoanPreview from './LoanPreview';
 
 export default function GoldLoanPreview() {
-    const [id,setId]=useState({
-        loanid:''
-         });
-    const dbUrl="http://localhost:8080/loan/fetchData";
-    const onUpdateData=(event)=>
-    {
-        const {name,value}=event.target;
-        setId((prev)=>
-        {
-            return{
+    const [id, setId] = useState({
+        loanid: ''
+    });
+    const dbUrl = "http://localhost:8080/loan/fetchData";
+    const onUpdateData = (event) => {
+        const { name, value } = event.target;
+        setId((prev) => {
+            return {
                 ...prev,
-                [name]:value
+                [name]: value
             }
         })
     }
-    var email;
-    const [data,setData]=useState();
-    const display=''
-    const onSubmit=()=>
-    {
-        axios.get(`${dbUrl}/${id.loanid}`).then(res=>res.data).then((response)=>
-        {
-           display=<table><tr><td>{response.cname}</td></tr></table>
+    const [datas, setData] = useState();
+    const [flag, setFlag] = useState(false);
+
+    const onSubmit = () => {
+
+        axios.get(`${dbUrl}/${id.loanid}`).then(res => res.data).then((response) => {
+            setData(response);
+            console.log(datas)
         })
-        setData(display)
-     
+        setFlag(true);
     }
     return (
+
+
         <div>
-            <Card>    
-            <CardContent>
-            <label>Enter Id : </label><TextField variant="outlined"  name="loanid" value={id.loanid} onChange={onUpdateData} />&nbsp;&nbsp;<Button name="but" variant="contained" color="secondary" onClick={onSubmit}>Get Loan Details</Button>
-            </CardContent>
+            <Card>
+                <CardContent>
+                    <label>Enter Id : </label><TextField id="standard-basic" name="loanid" value={id.loanid} onChange={onUpdateData} />&nbsp;&nbsp;<Button name="but" variant="contained" color="secondary" onClick={onSubmit}>Get Loan Details</Button>
+
+                    {
+                    flag && <LoanPreview val={datas} />
+                }
+                </CardContent>
             </Card>
-            {
-                data
-            }
+          
+
+
         </div>
     )
 }

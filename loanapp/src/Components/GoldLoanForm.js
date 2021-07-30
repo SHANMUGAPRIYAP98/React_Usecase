@@ -159,7 +159,7 @@ export default function GoldLoanForm() {
                                         <tr><td><TextField id="standard-basic" label="Purpose of the Loan" value={datas.purpose} name="purpose" onChange={onUpdateData}></TextField></td></tr>
                                     </table>
                          <tr><td></td></tr><br/>
-                         <tr><td><Button va color="secondary"riant="contained" style={{marginLeft:300}} onClick={onSubmit}>Submit Loan</Button></td>
+                         <tr><td><Button variant="contained" color="secondary" style={{marginLeft:300}} onClick={onSubmit}>Submit Loan</Button></td>
                          <td><Button variant="contained" color="secondary" style={{marginLeft:50}}>Clear Data</Button></td></tr>
                     </form>
                 </CardContent>

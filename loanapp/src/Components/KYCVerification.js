@@ -46,7 +46,7 @@ export default function KYCVerification() {
         <div>
         <Card className={classes1.root}>
         <CardContent className={classes2.root}>
-              <VerifyButton
+        <VerifyButton
           apiKey={
             "49ab129a42f3bd68094d83d742e92750a0416a57224dcd013288a2e08be5c63c"
           }
